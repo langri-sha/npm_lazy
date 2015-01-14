@@ -1,4 +1,4 @@
-# docker-npm_lazy
+# Docker npm_lazy
 
 Add this Docker container to your orchestration and enjoy near-instantaneous
 package dependency resolutions, courtesy of

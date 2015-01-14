@@ -1,5 +1,5 @@
 #
-# Dockerfile for langrisha/npm_lazy
+# Dockerfile for langrisha/npm-lazy
 #
 # A Docker container to speed up your NPM deploys http://mixu.net/npm_lazy/.
 #
@@ -11,9 +11,9 @@
 #   configuration defaults (effectively applied)
 #     https://github.com/mixu/npm_lazy/blob/master/config.js
 #   docker hub
-#     https://registry.hub.docker.com/u/langrisha/npm_lazy/
+#     https://registry.hub.docker.com/u/langrisha/npm-lazy/
 #   docker source repository
-#     https://github.com/langri-sha/docker-npm_lazy/
+#     https://github.com/langri-sha/npm_lazy/
 #
 
 # Based on the much regarded Google Node.js image.
