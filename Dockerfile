@@ -32,8 +32,5 @@ WORKDIR /npm_lazy
 # Location of the NPM package cache.
 VOLUME ["/root/.npm_lazy"]
 
-# Expose the bound server port.
-EXPOSE 8080
-
 # Start the npm_lazy server on entry.
 ENTRYPOINT ["npm", "start"]
