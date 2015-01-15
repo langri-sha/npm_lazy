@@ -20,10 +20,11 @@
 FROM google/nodejs
 
 # Fetch, extract and install latest release of mixu/npm_lazy.
-RUN mkdir /npm_lazy && cd $_ && \
+RUN \
+  mkdir /npm_lazy && \
   curl --location https://github.com/mixu/npm_lazy/archive/v1.7.0.tar.gz | \
-  tar xvz --strip-components=1 && \
-  npm install
+  tar xvz --strip-components=1 -C /npm_lazy && \
+  cd /npm_lazy && npm install
 
 # Work in the application directory.
 WORKDIR /npm_lazy
