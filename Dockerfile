@@ -29,8 +29,11 @@ RUN \
 # Work in the application directory.
 WORKDIR /npm_lazy
 
-# Location of the NPM package cache.
+# Volumize the NPM package cache.
 VOLUME ["/root/.npm_lazy"]
 
+# By default, use the provided configuration.
+CMD ["./config.js"]
+
 # Start the npm_lazy server on entry.
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["bin/npm_lazy", "--config"]
