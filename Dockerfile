@@ -32,11 +32,11 @@ WORKDIR /npm_lazy
 # Volumize the NPM package cache.
 VOLUME ["/root/.npm_lazy"]
 
-# By default, use the provided configuration.
-CMD ["./config.js"]
-
 # Server is listening on 0.0.0.0:8080, by default.
 EXPOSE 8080
 
-# Start the npm_lazy server on entry.
-ENTRYPOINT ["bin/npm_lazy", "--config"]
+# Show resolved server configuration.
+CMD ["--show-config"]
+
+# Start the npm_lazy server on entry, using defaults.
+ENTRYPOINT ["bin/npm_lazy"]
