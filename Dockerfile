@@ -17,17 +17,7 @@
 #
 
 # Based on the much regarded Google Node.js image.
-FROM google/nodejs
-
-# Fetch, extract and install latest release of mixu/npm_lazy.
-RUN \
-  mkdir /npm_lazy && \
-  curl --location https://github.com/mixu/npm_lazy/archive/v1.7.0.tar.gz | \
-  tar xvz --strip-components=1 -C /npm_lazy && \
-  cd /npm_lazy && npm install
-
-# Work in the application directory.
-WORKDIR /npm_lazy
+FROM google/nodejs-runtime
 
 # Volumize the NPM package cache.
 VOLUME ["/root/.npm_lazy"]
@@ -35,8 +25,5 @@ VOLUME ["/root/.npm_lazy"]
 # Server is listening on 0.0.0.0:8080, by default.
 EXPOSE 8080
 
-# Show resolved server configuration.
+# Arguments effectively passed to `index.js`.
 CMD ["--show-config"]
-
-# Start the npm_lazy server on entry, using defaults.
-ENTRYPOINT ["bin/npm_lazy"]
