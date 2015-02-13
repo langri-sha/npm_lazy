@@ -65,43 +65,52 @@ npm_lazy:
 The `npm_lazy/server` is wrapped with a thin client that allows you to
 dynamically configure the server from the command-line options on startup.
 
-Here is a list of available options:
+You can configure the server by passing arguments when starting the container.
+
+```
+$ node index.js --help
+
+  Usage: index [options]
+
+  Starts a dynamically configured npm_lazy server instance
+
+  Options:
+
+    -h, --help                             output usage information
+    -V, --version                          output the version number
+    --show-config                          display the effective server configuration on startup
+    --logging-opts_log-to-console [value]  
+    --logging-opts_log-to-file [value]
+    --logging-opts_filename [value]
+    --cache-directory [value]
+    --cache-age [value]
+    --http-timeout [value]
+    --max-retries [value]
+    --reject-unauthorized [value]
+    --external-url [value]
+    --remote-url [value]
+    --port [value]
+    --host [value]
+    --proxy_https [value]
+    --proxy_http [value]
+```
 
 ## Configuring the `npm` client
 
-On clean installations, the `npm` client is configured to access the official
-Node.js npm registry by default:
+There are several ways you can configure the `npm` client, [outlined from
+official sources](https://docs.npmjs.com/misc/config).
+
+A few great examples involve configuring the environment:
 
 ```
-$ npm get registry
-https://registry.npmjs.org/
+docker -e npm_config_registry=http://localhost:8080 --link=npm_lazy run mynodejsapp
 ```
 
-There are several ways you can configure the `npm` client, outlined in the
-[`npm_lazy` documentation](http://mixu.net/npm_lazy/#pointing_npm_to_npm_lazy).
-
-To temporarily use the registry for an ad-hoc `npm` install:
+or providing a project-specific `npmrc` file:
 
 ```
-RUN npm --registry http://localhost:8080/ install socket.io
-```
-
-To permanently set the registry:
-
-```
-RUN npm config set registry http://localhost:8080/
-```
-
-To permanently set the registry via config file, in `~/.npmrc`:
-
-```
-# myproject/npmrc
+# myproj/.npmrc
 registry = http://localhost:8080/
-
-# myproject/Dockerfile
-FROM foo/bar
-
-COPY npmrc /root/.npmrc
 ```
 
 ## Default container behavior
@@ -123,6 +132,7 @@ runtime configuration.
 
 - [npm_lazy project page](http://mixu.net/npm_lazy/)
 - [mixu/npm_lazy repository](https://github.com/mixu/npm_lazy/)
-- [configuration defaults (effectively applied)](https://github.com/mixu/npm_lazy/blob/master/config.js)
+- [npm_lazy configuration defaults (effectively applied)](https://github.com/mixu/npm_lazy/blob/master/config.js)
+- [configuring npm clients](https://docs.npmjs.com/misc/config)
 - [docker hub](https://registry.hub.docker.com/u/langrisha/npm-lazy/)
 - [docker source repository](https://github.com/langri-sha/npm_lazy/)
