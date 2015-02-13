@@ -9,7 +9,8 @@ var utils = require('./lib/utils');
 program
   .version(pkg.version)
   .usage('[options]')
-  .description('Starts a dynamically configured npm_lazy server instance');
+  .description('Starts a dynamically configured npm_lazy server instance')
+  .option('--show-config');
 
 // Populate and parse options.
 utils.configureProgramOptions(config, program);
@@ -17,6 +18,11 @@ program.parse(process.argv);
 
 // Update configuration.
 utils.updateConfiguration(config, program);
+
+// Show compiled configuration options, if requested.
+if (program.showConfig) {
+  console.log(config);
+}
 
 // Start server.
 server(config);
