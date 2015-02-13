@@ -10,9 +10,10 @@ program
   .version(pkg.version)
   .usage('[options]')
   .description('Starts a dynamically configured npm_lazy server instance')
-  .option('--show-config');
+  .option('--show-config', 'display the effective server configuration on startup');
 
 // Populate and parse options.
+config.proxy.http = config.proxy.https = undefined;
 utils.configureProgramOptions(config, program);
 program.parse(process.argv);
 
