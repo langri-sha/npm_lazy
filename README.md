@@ -52,12 +52,14 @@ Here's a high-level overview using [`fig.sh`](http://fig.sh):
 
 ```
 web:
-  build: .
+  image: google/nodejs
+  environment:
+    - npm_config_registry=http://npmlazy
   links:
-    - npm_lazy
-npm_lazy:
-  build: langrisha/npm_lazy
-  run: --show-config --port=80 --external-url=http://localhost:80
+    - npmlazy
+npmlazy:
+  image: langrisha/npm-lazy
+  command: --show-config --port=80 --external-url=http://npmlazy
 ```
 
 ## Configuring the `npm_lazy` server
