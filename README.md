@@ -52,12 +52,14 @@ Here's a high-level overview using [`fig.sh`](http://fig.sh):
 
 ```
 web:
-  build: .
+  image: google/nodejs
+  environment:
+    - npm_config_registry=http://npmlazy
   links:
-    - npm_lazy
-npm_lazy:
-  build: langrisha/npm_lazy
-  run: --show-config --port=80 --external-url=http://localhost:80
+    - npmlazy
+npmlazy:
+  image: langrisha/npm-lazy
+  command: --show-config --port=80 --external-url=http://npmlazy
 ```
 
 ## Configuring the `npm_lazy` server
@@ -103,7 +105,7 @@ official sources](https://docs.npmjs.com/misc/config).
 A few great examples involve configuring the environment:
 
 ```
-docker -e npm_config_registry=http://localhost:8080 --link=npm_lazy run mynodejsapp
+docker run -e npm_config_registry=http://localhost:8080 nodejsapp
 ```
 
 or providing a project-specific `npmrc` file:
