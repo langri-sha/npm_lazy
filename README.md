@@ -105,7 +105,7 @@ official sources](https://docs.npmjs.com/misc/config).
 A few great examples involve configuring the environment:
 
 ```
-docker -e npm_config_registry=http://localhost:8080 --link=npm_lazy run mynodejsapp
+docker run -e npm_config_registry=http://localhost:8080 nodejsapp
 ```
 
 or providing a project-specific `npmrc` file:
