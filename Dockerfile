@@ -16,4 +16,4 @@ RUN npm install
 CMD ["--show-config"]
 
 # Start the server on entry.
-ENTRYPOINT ["/nodejs/bin/node", "index.js"]
+ENTRYPOINT ["node", "index.js"]
