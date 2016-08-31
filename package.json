@@ -26,7 +26,7 @@
   "homepage": "https://github.com/langri-sha/npm_lazy",
   "dependencies": {
     "commander": "^2.6.0",
-    "npm_lazy": "^1.7.0",
+    "npm_lazy": "^1.8.0",
     "underscore": "^1.7.0",
     "underscore.string": "^3.0.3"
   }
