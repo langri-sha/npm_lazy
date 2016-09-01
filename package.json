@@ -4,7 +4,7 @@
   "description": "Dockerized distribution of npm_lazy",
   "main": "index.js",
   "scripts": {
-    "start": "/nodejs/bin/node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,9 +19,12 @@
     "lazy"
   ],
   "author": "langri-sha",
-  "license": "BSD",
+  "license": "CC0-1.0",
   "bugs": {
     "url": "https://github.com/langri-sha/npm_lazy/issues"
+  },
+  "engines": {
+    "node" : "0.12"
   },
   "homepage": "https://github.com/langri-sha/npm_lazy",
   "dependencies": {

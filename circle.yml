@@ -1,0 +1,18 @@
+machine:
+  services:
+    - docker
+  environment:
+    IMAGE: npm-lazy
+    PACKAGE: process
+    test: npm-lazy-test
+
+dependencies:
+  override:
+    - docker build -t $IMAGE --rm=false .
+    - docker pull node:0.12
+
+test:
+  pre:
+    - docker run -d --name $test $IMAGE --port=80 --external-url=http://${test}
+  override:
+    - docker run --link $test -e npm_config_registry=http://${test} node:0.12 npm install --verbose $PACKAGE

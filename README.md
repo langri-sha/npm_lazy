@@ -2,16 +2,11 @@
 
 [![Stories in Ready](https://badge.waffle.io/langri-sha/npm_lazy.png?label=ready&title=Ready)](https://waffle.io/langri-sha/npm_lazy)
 
-Add this Docker container to your orchestration and enjoy near-instantaneous
-package dependency resolutions, courtesy of
-[mixu's lazy npm cache](http://mixu.net/npm_lazy/)
-(repository [mixu/npm_lazy](https://github.com/mixu/npm_lazy/)).
+Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions, courtesy of [mixu's lazy npm cache](http://mixu.net/npm_lazy/) (repository [mixu/npm_lazy](https://github.com/mixu/npm_lazy/)).
 
 ## Usage
 
-In order to utilize the container's service, you'll have to configure the
-server's settings and also direct your local `npm` clients to use it as it's
-source for registry data.
+In order to utilize the container's service, you'll have to configure the server's settings and also direct your local `npm` clients to use it as it's source for registry data.
 
 There are two ways you can use the containerized `npm_lazy` server:
 
@@ -20,12 +15,9 @@ There are two ways you can use the containerized `npm_lazy` server:
 
 ### Using the server from your local host
 
-The server defaults are configured to play nicely with local setups, i.e. when
-you want the `npm` client from your host to retrieve the packages through the
-cache from the running container.
+The server defaults are configured to play nicely with local setups, i.e. when you want the `npm` client from your host to retrieve the packages through the cache from the running container.
 
-The only important thing you need to do is to map the default exposed port from
-the container to the same port on your host:
+The only important thing you need to do is to map the default exposed port from the container to the same port on your host:
 
 ```
 # Start a detached container, mapping the exposed port locally
@@ -41,12 +33,9 @@ $ curl http://localhost:8080
 
 ### Linking with other containers
 
-If you would like containers residing on your host to use the `npm_lazy` server,
-give your container a hostname and add your configuration module to the
-container.
+If you would like containers residing on your host to use the `npm_lazy` server, give your container a hostname and add your configuration module to the container.
 
-Then, configure the `npm` clients on all the linked containers and configure
-their registries to point to the `npm_lazy` host.
+Then, configure the `npm` clients on all the linked containers and configure their registries to point to the `npm_lazy` host.
 
 Here's a high-level overview using [`fig.sh`](http://fig.sh):
 
@@ -64,8 +53,7 @@ npmlazy:
 
 ## Configuring the `npm_lazy` server
 
-The `npm_lazy/server` is wrapped with a thin client that allows you to
-dynamically configure the server from the command-line options on startup.
+The `npm_lazy/server` is wrapped with a thin client that allows you to dynamically configure the server from the command-line options on startup.
 
 You can configure the server by passing arguments when starting the container.
 
@@ -99,8 +87,7 @@ $ node index.js --help
 
 ## Configuring the `npm` client
 
-There are several ways you can configure the `npm` client, [outlined from
-official sources](https://docs.npmjs.com/misc/config).
+There are several ways you can configure the `npm` client, [outlined from official sources](https://docs.npmjs.com/misc/config).
 
 A few great examples involve configuring the environment:
 
@@ -115,20 +102,13 @@ or providing a project-specific `npmrc` file:
 registry = http://localhost:8080/
 ```
 
-## Default container behavior
+## Troubleshooting
 
-You'll have to pay attention to the configured server's **port** and  **external
-URL**. The server's [provided
-defaults](https://github.com/mixu/npm_lazy/blob/master/config.js) configure the
-server to listen on *0.0.0.0:8080* and to be accessible from the URL
-*http://localhost:8080*.
+You'll have to pay attention to the configured server's **port** and  **external URL**. The server's [provided defaults](https://github.com/mixu/npm_lazy/blob/master/config.js) configure the server to listen on *0.0.0.0:8080* and to be accessible from the URL *http://localhost:8080*.
 
-Make sure the networking requirements for the server are satisfied correctly and
-that the server running within your container matches the details of how it is
-accessed externally.
+Make sure the networking requirements for the server are satisfied correctly and that the server running within your container matches the details of how it is accessed externally.
 
-You can pass the `--show-config` container command to display the server's
-runtime configuration.
+You can pass the `--show-config` container command to display the server's runtime configuration. Use `npm install --verbose` to get more output from the client and make sure the hosts for the package URLs when they're looked up and downloaded always match up.
 
 ## See also
 
