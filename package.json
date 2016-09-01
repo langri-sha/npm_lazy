@@ -4,7 +4,7 @@
   "description": "Dockerized distribution of npm_lazy",
   "main": "index.js",
   "scripts": {
-    "start": "/nodejs/bin/node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
