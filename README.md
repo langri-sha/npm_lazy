@@ -53,7 +53,7 @@ npmlazy:
 
 ## Configuring the `npm_lazy` server
 
-The `npm_lazy/server` is wrapped with a thin client that allows you to dynamically configure the server from the command-line options on startup.
+The `npm_lazy/server` is wrapped with a thin client that allows you to dynamically configure the server from the command-line options or the environment on startup.
 
 You can configure the server by passing arguments when starting the container.
 
@@ -83,6 +83,17 @@ $ node index.js --help
     --host [value]
     --proxy_https [value]
     --proxy_http [value]
+```
+
+### Environment variables
+
+Any environment variables that start with `NPM_LAZY_` will be interpreted as a configuration argument. For example, putting `NPM_LAZY_PORT=80` in your environment will set the `--port` argument to `80`. Environment variables are case-sensitive, so `npm_lazy_port` will not work.
+
+```
+$ export NPM_LAZY_CACHE_DIRECTORY=/tmp/npm_lazy
+$ export NPM_LAZY_EXTERNAL_URL=http://npm_lazy
+$ export NPM_LAZY_PORT=80
+$ node index.js
 ```
 
 ## Configuring the `npm` client

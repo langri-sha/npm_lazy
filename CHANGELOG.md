@@ -5,6 +5,7 @@
 - Update [mixu/npm_lazy] to v1.8.0. Thanks @ralfschimmel!
 - Switch to official Node.js Docker image. Thanks @ralfschimmel!
 - Update Node.js version to v0.12
+- Add support for configuring via environment variables #17. Thanks @StanAngeloff!
 
 ## [1.7.0] 2015-02-16
 
