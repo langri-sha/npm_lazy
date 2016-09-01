@@ -3,6 +3,7 @@ machine:
     - docker
   environment:
     IMAGE: npm-lazy
+    PACKAGE: process
     test: npm-lazy-test
 
 dependencies:
@@ -14,4 +15,4 @@ test:
   pre:
     - docker run -d --name $test $IMAGE --port=80 --external-url=http://${test}
   override:
-    - docker run --link $test -e npm_config_registry=http://${test} node:0.12 npm install --verbose minimist
+    - docker run --link $test -e npm_config_registry=http://${test} node:0.12 npm install --verbose $PACKAGE
