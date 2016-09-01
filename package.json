@@ -1,8 +1,9 @@
 {
   "name": "docker-npm_lazy",
-  "version": "1.0.0",
+  "version": "1.8.0",
   "description": "Dockerized distribution of npm_lazy",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
