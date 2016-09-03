@@ -3,6 +3,8 @@
 #
 FROM node:0.12-onbuild
 
+MAINTAINER Filip Dupanović <keybase.io/langrisha>
+
 # Volumize the NPM package cache.
 VOLUME ["/root/.npm_lazy"]
 
