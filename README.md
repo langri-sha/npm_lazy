@@ -1,8 +1,6 @@
 # Docker npm_lazy
 
-[![Stories in Ready](https://badge.waffle.io/langri-sha/npm_lazy.png?label=ready&title=Ready)](https://waffle.io/langri-sha/npm_lazy)
-
-Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions, courtesy of [mixu's lazy npm cache](http://mixu.net/npm_lazy/) (repository [mixu/npm_lazy](https://github.com/mixu/npm_lazy/)).
+Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions, courtesy of [mixu's lazy npm cache][npm_lazy] (repository [mixu/npm_lazy]).
 
 ## Usage
 
@@ -123,12 +121,12 @@ You can pass the `--show-config` container command to display the server's runti
 
 ## See also
 
-- [npm_lazy project page](http://mixu.net/npm_lazy/)
-- [mixu/npm_lazy repository](https://github.com/mixu/npm_lazy/)
-- [npm_lazy configuration defaults (effectively applied)](https://github.com/mixu/npm_lazy/blob/master/config.js)
-- [configuring npm clients](https://docs.npmjs.com/misc/config)
-- [docker hub](https://registry.hub.docker.com/u/langrisha/npm-lazy/)
-- [docker source repository](https://github.com/langri-sha/npm_lazy/)
+- [npm_lazy project page][npm_lazy]
+- [mixu/npm_lazy repository][mixu/npm_lazy]
+- [npm_lazy configuration defaults (effectively applied)][config]
+- [configuring npm clients][npm-config]
+- [docker hub]
+- [docker source repository]
 
 # Changelog
 
@@ -157,4 +155,9 @@ You can pass the `--show-config` container command to display the server's runti
 [1.7.0]: https://github.com/langri-sha/npm_lazy/compare/3f1026213161bbe3fd959e82b353e3f2013a2fed...1.7.0
 [1.0.0]: https://github.com/langri-sha/npm_lazy/compare/b0d5587a136a8b87cc95578aa53714c58ec5bfb1...3f1026213161bbe3fd959e82b353e3f2013a2fed
 
+[npm_lazy]: http://mixu.net/npm_lazy/
 [mixu/npm_lazy]: https://github.com/mixu/npm_lazy
+[config]: https://github.com/mixu/npm_lazy/blob/master/config.js
+[npm-config]: https://docs.npmjs.com/misc/config
+[docker hub]: https://registry.hub.docker.com/u/langrisha/npm-lazy/
+[docker source repository]: https://github.com/langri-sha/npm_lazy/
