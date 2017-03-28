@@ -1,9 +1,5 @@
-#
-# Dockerfile for langrisha/npm-lazy
-#
 FROM node:0.12-onbuild
-
-MAINTAINER Filip Dupanović <keybase.io/langrisha>
+LABEL maintainer "Filip Dupanović (https://keybase.io/langrisha)"
 
 # Volumize the NPM package cache.
 VOLUME ["/root/.npm_lazy"]
