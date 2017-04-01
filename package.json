@@ -6,6 +6,9 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
+    "container": "export NAME=npm_lazy-dev;  docker ps -a | grep -q $NAME && npm run -s container:app-start || npm run -s container:app-run",
+    "container:app-start": "docker start -ai $NAME",
+    "container:app-run": "docker run --name $NAME -w /$NAME -v $(pwd):/$NAME -e \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/node_modules/.bin\" --dns 8.8.8.8 --dns 8.8.4.4 --entrypoint=/bin/bash -it node:7",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
