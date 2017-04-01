@@ -67,7 +67,7 @@ $ node index.js --help
     -h, --help                             output usage information
     -V, --version                          output the version number
     --show-config                          display the effective server configuration on startup
-    --logging-opts_log-to-console [value]  
+    --logging-opts_log-to-console [value]
     --logging-opts_log-to-file [value]
     --logging-opts_filename [value]
     --cache-directory [value]
