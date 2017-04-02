@@ -130,6 +130,10 @@ You can pass the `--show-config` container command to display the server's runti
 
 # Changelog
 
+## [1.10.0] 2017-04-02
+
+- Update [mixu/npm_lazy] to 1.10.0
+
 ## [1.9.0] 2017-04-02
 
 - Update [mixu/npm_lazy] to 1.9.0
@@ -156,7 +160,7 @@ You can pass the `--show-config` container command to display the server's runti
 - Initial release
 - Use [mixu/npm_lazy] v1.7.0
 
-[Unreleased]: https://github.com/langri-sha/npm_lazy/compare/1.9.0...HEAD
+[1.10.0]: https://github.com/langri-sha/npm_lazy/compare/1.9.0...1.10.0
 [1.9.0]: https://github.com/langri-sha/npm_lazy/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/langri-sha/npm_lazy/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/langri-sha/npm_lazy/compare/3f1026213161bbe3fd959e82b353e3f2013a2fed...1.7.0
