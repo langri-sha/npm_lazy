@@ -1,11 +1,14 @@
 {
   "name": "docker-npm_lazy",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Dockerized distribution of npm_lazy",
   "main": "index.js",
   "private": true,
   "scripts": {
     "start": "node index.js",
+    "container": "export NAME=npm_lazy-dev;  docker ps -a | grep -q $NAME && npm run -s container:app-start || npm run -s container:app-run",
+    "container:app-start": "docker start -ai $NAME",
+    "container:app-run": "docker run --name $NAME -w /$NAME -v $(pwd):/$NAME -e \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/node_modules/.bin\" --dns 8.8.8.8 --dns 8.8.4.4 --entrypoint=/bin/bash -it node:7",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,12 +28,12 @@
     "url": "https://github.com/langri-sha/npm_lazy/issues"
   },
   "engines": {
-    "node" : "0.12"
+    "node" : "4.8.1"
   },
   "homepage": "https://github.com/langri-sha/npm_lazy",
   "dependencies": {
     "commander": "^2.6.0",
-    "npm_lazy": "^1.8.0",
+    "npm_lazy": "^1.9.0",
     "underscore": "^1.7.0",
     "underscore.string": "^3.0.3"
   }

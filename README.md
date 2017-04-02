@@ -1,8 +1,6 @@
 # Docker npm_lazy
 
-[![Stories in Ready](https://badge.waffle.io/langri-sha/npm_lazy.png?label=ready&title=Ready)](https://waffle.io/langri-sha/npm_lazy)
-
-Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions, courtesy of [mixu's lazy npm cache](http://mixu.net/npm_lazy/) (repository [mixu/npm_lazy](https://github.com/mixu/npm_lazy/)).
+Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions, courtesy of [mixu's lazy npm cache][npm_lazy] (repository [mixu/npm_lazy]).
 
 ## Usage
 
@@ -69,7 +67,7 @@ $ node index.js --help
     -h, --help                             output usage information
     -V, --version                          output the version number
     --show-config                          display the effective server configuration on startup
-    --logging-opts_log-to-console [value]  
+    --logging-opts_log-to-console [value]
     --logging-opts_log-to-file [value]
     --logging-opts_filename [value]
     --cache-directory [value]
@@ -123,9 +121,50 @@ You can pass the `--show-config` container command to display the server's runti
 
 ## See also
 
-- [npm_lazy project page](http://mixu.net/npm_lazy/)
-- [mixu/npm_lazy repository](https://github.com/mixu/npm_lazy/)
-- [npm_lazy configuration defaults (effectively applied)](https://github.com/mixu/npm_lazy/blob/master/config.js)
-- [configuring npm clients](https://docs.npmjs.com/misc/config)
-- [docker hub](https://registry.hub.docker.com/u/langrisha/npm-lazy/)
-- [docker source repository](https://github.com/langri-sha/npm_lazy/)
+- [npm_lazy project page][npm_lazy]
+- [mixu/npm_lazy repository][mixu/npm_lazy]
+- [npm_lazy configuration defaults (effectively applied)][config]
+- [configuring npm clients][npm-config]
+- [docker hub]
+- [docker source repository]
+
+# Changelog
+
+## [1.9.0] 2017-04-02
+
+- Update [mixu/npm_lazy] to 1.9.0
+- Update container image to `node:4.8.1`
+- Use CCI 2.0
+
+## [1.8.0] 2016-09-01
+
+- Update [mixu/npm_lazy] to v1.8.0. Thanks @ralfschimmel!
+- Switch to official Node.js Docker image. Thanks @ralfschimmel!
+- Update Node.js version to v0.12
+- Add support for configuring via environment variables #17. Thanks @StanAngeloff!
+- Add basic tests
+
+## [1.7.0] 2015-02-16
+
+- Using Google's Node.js runtime image
+- Update [mixu/npm_lazy] to v1.7
+- Add usage examples
+- Add support for parsing command-line arguments
+
+## [1.0.0] 2015-01-23
+
+- Initial release
+- Use [mixu/npm_lazy] v1.7.0
+
+[Unreleased]: https://github.com/langri-sha/npm_lazy/compare/1.9.0...HEAD
+[1.9.0]: https://github.com/langri-sha/npm_lazy/compare/1.8.0...1.9.0
+[1.8.0]: https://github.com/langri-sha/npm_lazy/compare/1.7.0...1.8.0
+[1.7.0]: https://github.com/langri-sha/npm_lazy/compare/3f1026213161bbe3fd959e82b353e3f2013a2fed...1.7.0
+[1.0.0]: https://github.com/langri-sha/npm_lazy/compare/b0d5587a136a8b87cc95578aa53714c58ec5bfb1...3f1026213161bbe3fd959e82b353e3f2013a2fed
+
+[npm_lazy]: http://mixu.net/npm_lazy/
+[mixu/npm_lazy]: https://github.com/mixu/npm_lazy
+[config]: https://github.com/mixu/npm_lazy/blob/master/config.js
+[npm-config]: https://docs.npmjs.com/misc/config
+[docker hub]: https://registry.hub.docker.com/u/langrisha/npm-lazy/
+[docker source repository]: https://github.com/langri-sha/npm_lazy/
