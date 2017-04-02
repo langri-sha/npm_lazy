@@ -1,21 +1,46 @@
-machine:
-  services:
-    - docker
-  environment:
-    IMAGE: npm-lazy
-    PACKAGE: process
-    test: npm-lazy-test
-    test_environment: npm-lazy-test-environment
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/npm_lazy
+    environment:
+      PACKAGE: process
+      node: node:4.8.1
 
-dependencies:
-  override:
-    - docker build -t $IMAGE --rm=false .
-    - docker pull node:0.12
+    steps:
+      - checkout
 
-test:
-  pre:
-    - docker run -d --name $test $IMAGE --port=80 --external-url=http://${test}
-    - docker run -d --name $test_environment -e NPM_LAZY_PORT=80 -e NPM_LAZY_EXTERNAL_URL=http://${test_environment} $IMAGE
-  override:
-    - docker run --link $test -e npm_config_registry=http://${test} node:0.12 npm install --verbose $PACKAGE
-    - docker run --link $test_environment -e npm_config_registry=http://${test_environment} node:0.12 npm install --verbose $PACKAGE
+      - run:
+          name: Build test image
+          command: docker build --rm=false -t test .
+
+      - run:
+          name: Pull Node image
+          command: docker pull $node
+
+      - run:
+          name: Basic options test
+          command: |
+            docker run -d \
+              --name basic \
+              test \
+                --port=80 --external-url=http://basic
+
+            docker run \
+              --link basic \
+              -e npm_config_registry=http://basic \
+              $node \
+                npm install --verbose $PACKAGE
+
+      - run:
+          name: Environment options test
+          command: |
+            docker run -d --name env \
+              -e NPM_LAZY_PORT=80 \
+              -e NPM_LAZY_EXTERNAL_URL=http://env \
+              test
+
+            docker run --link env \
+              -e npm_config_registry=http:/env \
+              $node \
+                npm install --verbose $PACKAGE

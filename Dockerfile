@@ -1,4 +1,4 @@
-FROM node:0.12-onbuild
+FROM node:4.8.1-onbuild
 LABEL maintainer "Filip Dupanović (https://keybase.io/langrisha)"
 
 # Volumize the NPM package cache.
