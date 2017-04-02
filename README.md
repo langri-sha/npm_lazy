@@ -130,7 +130,13 @@ You can pass the `--show-config` container command to display the server's runti
 
 # Changelog
 
-## [1.8.0] [latest] 2016-09-01
+## [1.9.0] 2017-04-02
+
+- Update [mixu/npm_lazy] to 1.9.0
+- Update container image to `node:4.8.1`
+- Use CCI 2.0
+
+## [1.8.0] 2016-09-01
 
 - Update [mixu/npm_lazy] to v1.8.0. Thanks @ralfschimmel!
 - Switch to official Node.js Docker image. Thanks @ralfschimmel!
@@ -150,7 +156,8 @@ You can pass the `--show-config` container command to display the server's runti
 - Initial release
 - Use [mixu/npm_lazy] v1.7.0
 
-[latest]: https://github.com/langri-sha/npm_lazy/compare/1.7.0...1.8.0
+[Unreleased]: https://github.com/langri-sha/npm_lazy/compare/1.9.0...HEAD
+[1.9.0]: https://github.com/langri-sha/npm_lazy/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/langri-sha/npm_lazy/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/langri-sha/npm_lazy/compare/3f1026213161bbe3fd959e82b353e3f2013a2fed...1.7.0
 [1.0.0]: https://github.com/langri-sha/npm_lazy/compare/b0d5587a136a8b87cc95578aa53714c58ec5bfb1...3f1026213161bbe3fd959e82b353e3f2013a2fed
