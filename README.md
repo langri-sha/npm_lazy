@@ -130,6 +130,10 @@ You can pass the `--show-config` container command to display the server's runti
 
 # Changelog
 
+## [1.11.0] 2017-04-04
+
+- Update [mixu/npm_lazy] to 1.11.0
+
 ## [1.10.0] 2017-04-02
 
 - Update [mixu/npm_lazy] to 1.10.0
