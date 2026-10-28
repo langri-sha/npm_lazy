@@ -28,7 +28,7 @@
     "url": "https://github.com/langri-sha/npm_lazy/issues"
   },
   "engines": {
-    "node" : "24.22.1"
+    "node" : "24.22.2"
   },
   "homepage": "https://github.com/langri-sha/npm_lazy",
   "dependencies": {
